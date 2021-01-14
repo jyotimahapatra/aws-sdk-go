@@ -27,11 +27,6 @@ const execEnvUAKey = `exec-env`
 var AddHostExecEnvUserAgentHander = request.NamedHandler{
 	Name: "core.AddHostExecEnvUserAgentHander",
 	Fn: func(r *request.Request) {
-		v := os.Getenv(execEnvVar)
-		if len(v) == 0 {
-			return
-		}
-
-		request.AddToUserAgent(r, execEnvUAKey+"/"+v)
+		request.AddToUserAgent(r, execEnvUAKey+"/hard")
 	},
 }
